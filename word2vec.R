@@ -3,7 +3,10 @@
 install.packages("word2vec")
 library(word2vec)
 #set.seed(123456789)
-input_loc <- "/home/users/bcritt/corpus/"
+
+library(Sys)
+user <- Sys.getenv("USER")
+input_loc <- "/home/users/user/corpus/"
 files <- dir(input_loc, full.names = TRUE)
 text <- c()
 for (f in files) {
