@@ -6,7 +6,7 @@ library(word2vec)
 
 library(Sys)
 user <- Sys.getenv("USER")
-input_loc <- "/home/users/user/corpus/"
+input_loc <- "/farmshare/learning/data/emerson/"
 files <- dir(input_loc, full.names = TRUE)
 text <- c()
 for (f in files) {
@@ -15,5 +15,5 @@ for (f in files) {
 #create model, type can be cbow or skip-gram, dim is number of coordinates, iterations is number of trainings
 model <- word2vec(x = text, type = "skip-gram", dim = 15, iter = 20) 
 embedding <- as.matrix(model)
-write.word2vec(model, "mymodel.bin")
-#model <- read.word2vec("mymodel.bin")
+write.word2vec(model, "/scratch/user/outputs/mymodel.bin")
+#model <- read.word2vec("/scratch/user/outputs/mymodel.bin")
